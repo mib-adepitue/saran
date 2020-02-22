@@ -18,7 +18,7 @@ class Komentar extends Controller
 
         $belum = \App\Komentar::where('admin_verified', 'no')->count();
         $terbaca = \App\Komentar::where('admin_verified', 'yes')->count();
-        $bidang = \App\Departmen::count();
+        $bidang = \App\Bidang::count();
         // return $terbaca;
 
     	return view('admin.dashboard',['all' => $all, 'belum' => $belum, 'terbaca' => $terbaca, 'bidang' => $bidang]);
