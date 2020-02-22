@@ -20,7 +20,7 @@ Komentar Terbaca
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Riwayat Komentar</h3>
+              <h3 class="card-title"><i class="nav-icon fas fa-envelope-open"></i> Riwayat Komentar</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -31,6 +31,7 @@ Komentar Terbaca
                   <th>No.</th>
                   <th>Nama</th>
                   <th>Email</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -38,9 +39,10 @@ Komentar Terbaca
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Id</th>
+                  <th>No</th>
                   <th>Nama</th>
                   <th>Email</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>
@@ -198,7 +200,7 @@ function detail() {
         $('#jkel').html(html.jkel);
         $('#alamat').html(html.alamat);
         $('#waktu').html(html.waktu);
-        $('#bidang').html("<b>"+html.bidang+"</b>");
+        $('#bidang').html("<b>"+html.bidang.nama+"</b>");
         $('#keluhan').html(html.pesan);
         $('#modal-detail').modal('show');
       }
@@ -225,6 +227,7 @@ tabel = $(document).ready(function(){
             { data: 'DT_RowIndex', name:'DT_RowIndex'},
             { "data": "nama" },
             { "data": "email" },
+            { "data": "status" },
             { "data": "action" }
         ]
     });

@@ -15,16 +15,16 @@ class CreateKomentarsTable extends Migration
     {
         Schema::create('komentars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');
-            $table->string('email');
+            $table->string('nama')->nullable();
+            $table->string('email')->nullable();
             $table->string('nohp')->nullable();
-            $table->string('alamat');
+            $table->string('alamat')->nullable();
             $table->enum('admin_verified', ['yes', 'no']);
-            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
             $table->text('pesan');
-            $table->bigInteger('departmen_id')->unsigned();
+            $table->bigInteger('bidang_id')->unsigned();
             $table->timestamps();
-            $table->foreign('departmen_id')->references('id')->on('departmens');
+            $table->foreign('bidang_id')->references('id')->on('departmens');
         });
     }
 

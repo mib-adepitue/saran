@@ -291,7 +291,7 @@
                             <table border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td>
-                                        <center><h2>Angelica Keluhan Notification</h2></center>
+                                        <center><h2>Mib-Ade'Pitue Notification</h2></center>
                                         <p>Hai {{$name}}</p>
 
                                         <table border="0" cellpadding="0" cellspacing="0">
@@ -309,8 +309,8 @@
                                                                     <hr>
                                                                     <center><p>{{$pesan}}</p></center>
                                                                     <ul>
-                                                                     <li>Email : angelica@gmail.com</li>
-                                                                     <li>WhatsApp : 082344949555</li>
+                                                                     <li>Email : mibadepituedp@gmail.com</li>
+                                                                     <li>WhatsApp : 082344949505</li>
                                                                  </ul>
                                                                     <hr>
                                                                    
@@ -340,13 +340,13 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="content-block">
-                                <span class="apple-link">Angelica Keluhan</span>
+                                <span class="apple-link">Mib-Ade'Pitue</span>
                                 {{--<br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.--}}
                             </td>
                         </tr>
                         <tr>
                             <td class="content-block powered-by">
-                                Powered by <a href="http://medium.com/@kiddy.xyz">Angelica Keluhan</a>.
+                                Powered by <a href="http://medium.com/@kiddy.xyz">Mib-Ade'Pitue</a>.
                             </td>
                         </tr>
                     </table>

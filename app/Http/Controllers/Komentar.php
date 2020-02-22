@@ -18,9 +18,10 @@ class Komentar extends Controller
 
         $belum = \App\Komentar::where('admin_verified', 'no')->count();
         $terbaca = \App\Komentar::where('admin_verified', 'yes')->count();
+        $bidang = \App\Departmen::count();
         // return $terbaca;
 
-    	return view('admin.dashboard',['all' => $all, 'belum' => $belum, 'terbaca' => $terbaca]);
+    	return view('admin.dashboard',['all' => $all, 'belum' => $belum, 'terbaca' => $terbaca, 'bidang' => $bidang]);
     }
 
     public function komentar_terbaca()
@@ -40,29 +41,35 @@ class Komentar extends Controller
     public function feedback(Request $request)
     {
         // return $request;
-    	$data = \App\Komentar::where('email', '=', $request->email)
-                            ->where('id', '=', $request->id)
-                            ->first();
-        // $data = \App\Komentar::find($id);
-        
-        // return $data;
-        $email = $data->email;
-        $judul= $request->judul;
-        $nama = $data->nama;
-        $data_send = array(
-                'name' => $nama,
-                'pesan' => $request->pesan,
-                'bidang' => $data->departmen->nama
-            );
-        // return $data_send;
-        Mail::send('feedback', $data_send, function($mail) use($email, $judul) {
-                $mail->to($email, 'no-reply')
-                ->subject($judul);
-                $mail->from('iporterteam@gmail.com', 'Angelica Keluhan');        
-            });
-            if (Mail::failures()) {
-                return $arrayName = array('status' => 'error' , 'pesan' => 'Gagal menigiri email' );
+        $data = \App\Komentar::findOrFail($request->id);
+
+        if($data->email == '') {
+            
+        } else {
+            if($data->nama != '') {
+                $nama = $data->nama;
+            } else {
+                $nama = "Sahabat Mib-Ade'Pitue";
             }
+            $email = $data->email;
+            $judul= $request->judul;
+            
+            $data_send = array(
+                    'name' => $nama,
+                    'pesan' => $request->pesan,
+                    'bidang' => $data->bidang->nama
+                );
+
+            Mail::send('feedback', $data_send, function($mail) use($email, $judul) {
+                    $mail->to($email, 'no-reply')
+                    ->subject($judul);
+                    $mail->from('iporterteam@gmail.com', "Mib-Ade'Pitue");        
+                });
+                if (Mail::failures()) {
+                    return $arrayName = array('status' => 'error' , 'pesan' => 'Gagal menigirim email' );
+                }
+            
+        }
         $data->admin_verified = 'yes';
         $data->save();
         return $arrayName = array('status' => 'success' , 'pesan' => 'Berhasil, email terkirim ke '.$nama );

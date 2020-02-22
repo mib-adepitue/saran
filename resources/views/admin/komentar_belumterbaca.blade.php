@@ -19,7 +19,7 @@ Komentar Belum Terbaca
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Komentar Yang Belum Dibaca</h3>
+              <h3 class="card-title"><i class="nav-icon fas fa-envelope"></i> Komentar Yang Belum Dibaca</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -160,7 +160,7 @@ Komentar Belum Terbaca
     
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        <button type="submit" class="btn btn-primary">Kirim Email</button>
+        <button type="submit" class="btn btn-primary">Konfirmasi</button>
       </div>
       </div>
     </form>
@@ -172,23 +172,6 @@ Komentar Belum Terbaca
 
 @section('js')
 <script type="text/javascript">
-// $('#balas_komentar').on('show.bs.modal', function (event) {
-//     var button = $(event.relatedTarget) // Button that triggered the modal
-//     var email = button.data('email')
-//     var modal = $(this)
-//     modal.find('#modal-email').val(email)
-//     modal.find('#modal-email-view').val(email)
-//     // modal.find('#form-reply').attr('action', rute)
-//   })
-
-function berhasil(status, pesan) {
-      Swal.fire({
-        type: status,
-        title: pesan,
-        showConfirmButton: true,
-        button: "Ok"
-    })
-} 
 
 $('#form-reply').submit(function(e){
       e.preventDefault();
@@ -220,48 +203,6 @@ $('#form-reply').submit(function(e){
             }); 
     });
 
-function hapus() {
-  $('body').on('click', '#del_id', function(e){
-      e.preventDefault();
-      Swal.fire({
-        title: 'Anda Yakin ?',
-        text: "Anda tidak dapat mengembalikan data yang telah di hapus!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Lanjutkan Hapus!',
-        timer: 6500
-      }).then((result) => {
-          if (result.value) {
-            var me = $(this),
-                url = me.attr('href'),
-                token = $('meta[name="csrf-token"]').attr('content');
-                $.ajax({
-                  url: url,
-                  method: "POST",
-                  data : {
-                    '_method' : 'DELETE',
-                    '_token'  : token
-                  },
-                  success:function(data){
-                    berhasil(data.status, data.pesan);
-                    $('#tabel_komentar').DataTable().ajax.reload();
-                  },
-                  error: function(xhr, status, error){
-                      var error = xhr.responseJSON; 
-                      if ($.isEmptyObject(error) == false) {
-                        $.each(error.errors, function(key, value) {
-                          gagal(key, value);
-                        });
-                      }
-                  } 
-                });
-        }
-      });
-    });
-}
-
 function detail() {
   $(document).on('click', '#detail', function(){
     var detail_id = $(this).attr('data-id');
@@ -280,7 +221,7 @@ function detail() {
         $('#jkel').html(html.jkel);
         $('#alamat').html(html.alamat);
         $('#waktu').html(html.waktu);
-        $('#bidang').html("<b>"+html.bidang+"</b>");
+        $('#bidang').html("<b>"+html.bidang.nama+"</b>");
         $('#keluhan').html(html.pesan);
         $('#modal-detail').modal('show');
       }

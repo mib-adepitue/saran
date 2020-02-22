@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Komentar extends Model
 {
-    public function departmen()
+    public function bidang()
     {
-        return $this->belongsTo('App\Departmen');
+        return $this->belongsTo('App\Bidang');
     }
 }

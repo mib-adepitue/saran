@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	$data = \App\Departmen::select('id', 'nama')->get();
+	$data = \App\Bidang::select('id', 'nama')->get();
     return view('form', ['data' => $data]);
 });
 
@@ -26,16 +26,24 @@ Route::get('komentar/{id}', 'TableApi@detail_komentar');
 
 
 Route::get('komentar_terbaca', 'TableApi@tabel_komentar_terbaca')->name('table.komentar_terbaca');
-Route::get('komentar_belumterbaca', 'TableApi@tabel_komentar_belum_dibaca')->name('table.komentar_belumterbaca'); 
+Route::get('komentar_belumterbaca', 'TableApi@tabel_komentar_belum_dibaca')->name('table.komentar_belumterbaca');
+
+Route::get('table_bidang', 'TableApi@bidang')->name('table.bidang'); 
 Route::get('test', 'TableApi@test');
 
 Route::prefix('app/admin')->group(function() {
 	Route::get('/', 'Komentar@index')->name('admin.index');
+	
 	Route::get('/komentar/terbaca', 'Komentar@komentar_terbaca')->name('terbaca');
 	Route::get('/komentar/belum-dibaca', 'Komentar@komentar_belumterbaca')->name('belumterbaca');
 	Route::get('komentar/{id}/detail', 'TableApi@detail')->name('table.detail'); //tidak boleh di ubah rutenya
 	Route::delete('komentar/{id}', 'Komentar@delete');
 	Route::put('feedback', 'Komentar@feedback')->name('feedback');
 
-	// Route::post('komentar', 'Komentar@store')->name('input.komentar');
+	// MANAGE BIDANG
+	Route::get('manage-bidang', 'Bidang@index')->name('bidang.index');
+	Route::post('manage-bidang', 'Bidang@store')->name('bidang.store');
+	Route::put('manage-bidang/{id}', 'Bidang@update')->name('bidang.update');
+	Route::delete('manage-bidang/{id}', 'Bidang@destroy')->name('bidang.delete');
+
 });

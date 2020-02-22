@@ -37,22 +37,24 @@ Bidang Pemasaran Bisnis 1']);
 
         // return $data;
     	return Datatables::of($data)
+        ->addColumn('status', function () {
+        return " <span class='badge badge-warning'> Terbaca </span>";
+        })
     	->addColumn('action', function ($data) {
-        return "<span class='badge badge-warning'>Terlihat</span>
-
-
-                <button class='btn btn-success btn-xs'
+        return "
+                <button class='btn btn-outline-info btn-xs'
                         title='Detail Komentar' id='detail'
                         href='".$data->id."/detail'
                         data-id='".$data->id."' onclick='detail()'>
                         <i class='fa fa-eye'></i>
                 </button>
 
-                <button class='btn btn-danger btn-xs' title='Hapus Data' id='del_id' 
-                        href='komentar/".$data->id."' onclick='hapus()'>
+                <button class='btn btn-outline-danger btn-xs' title='Hapus Data' id='del_id' 
+                        href='".$data->id."' onclick='hapus()'>
                         <i class='fa fa-trash'></i>
                 </button>";
         })
+        ->rawColumns(['status', 'action'])
         ->addIndexColumn() 
         ->make(true);
     	// return view('admin.dashboard');
@@ -64,26 +66,41 @@ Bidang Pemasaran Bisnis 1']);
 
         return Datatables::of($data)
         ->addColumn('action', function ($data) {
-        return "<button class='btn btn-success btn-xs'
+        return "<button class='btn btn-outline-info btn-xs'
                         title='Detail & Reply' id='detail'
                         href='".$data->id."/detail'
                         data-id='".$data->id."' onclick='detail()'>
                         <i class='fa fa-eye'></i>
+                </button>";
+        })
+        ->addIndexColumn() 
+        ->make(true);
+    }
+
+    public function bidang()
+    {
+        $data = \App\Bidang::select('id', 'nama')->get();
+
+        return Datatables::of($data)
+        ->addColumn('action', function ($data) {
+        return "<button class='btn btn-outline-info btn-xs'
+                        title='Edit Departmen' data-toggle='modal' data-target='#modal-edit' 
+                        data-id_bidang='".$data->id."' data-nama='".$data->nama."'>
+                        <i class='fa fa-pen'></i>
                 </button>
 
-                <button class='btn btn-danger btn-xs' title='Hapus Data' id='del_id' 
-                        href='komentar/".$data->id."' onclick='hapus()'>
+                <button class='btn btn-outline-danger btn-xs' title='Hapus Departmen' id='del_bidang' href='manage-bidang/".$data->id."' onclick='hapus()'>
                         <i class='fa fa-trash'></i>
                 </button>";
         })
         ->addIndexColumn() 
         ->make(true);
-        // return view('admin.dashboard');
     }
 
     public function detail($id)
     {
-    	$data = \App\Komentar::where('id', $id)->with('departmen:id,nama')->first();
+    	$data = \App\Komentar::where('id', $id)->with('bidang:id,nama')->first();
+        return $data;
 // return $data->id;
     	// return $data->created_at->format('Y-m-d');
     	if($data->jenis_kelamin == 'P'){
@@ -101,7 +118,7 @@ Bidang Pemasaran Bisnis 1']);
     			'jkel' => $jkel,
     			'pesan' => $data->pesan,
     			'waktu' => $data->created_at->format('Y-m-d'),
-    			'bidang' => $data->departmen->nama
+    			'bidang' => $data->bidang->nama
     		);
 
     	return response()->json($arrayName);

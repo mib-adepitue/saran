@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Angelica Keluhan</title>
+  <title>Saran - Mib-Ade'Pitue</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -33,14 +33,14 @@
 		<div class="jumbotron ">
   <h1 class="display-4">Komentar, Saran, Keluhan!</h1>
   <hr>
-<p>Alamat : jln. perintis kemerdekaan km.7 | Email : angelica@gmail.com | No. Telp : 4444(0481)</p>
+<p>Alamat : jln. perintis kemerdekaan km.7 | Email : mibadepituedp@gmail.com | No. Telp : 082344949505)</p>
 </div>
 
 	<div class="card card-body">
 	<div class="row">
           <div class="col-md-6">
 
-            <div class="card card-warning">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Data Diri Anda</h3>
               </div>
@@ -127,14 +127,14 @@
           <!-- </div> -->
           <!-- /.col (left) -->
           <div class="col-md-6">
-            <div class="card card-primary">
+            <div class="card card-warning">
               <div class="card-header">
                 <h3 class="card-title">Komentar, Saran, Keluhan</h3>
               </div>
               <div class="card-body">
                 <!-- Date range -->
                 <div class="form-group">
-                  <label>Bagian</label>
+                  <label>Bagian : <span style="color:#d45252;"><sup>* wajib diisi</sup></span></label>
 
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -142,8 +142,8 @@
                         <i class="fas fa-list-alt"></i>
                       </span>
                     </div>
-                    <select class="form-control" name="departmen_id">
-                    	<option selected="" disabled="">Pilih bagian/departmen</option>
+                    <select class="form-control" name="bidang_id">
+                    	<option selected="" disabled="">Pilih bagian/departmen </option>
                     	@foreach($data as $datas)
                     	<option value="{{$datas->id}}">{{$datas->nama}}</option>
                     	@endforeach
@@ -155,7 +155,7 @@
 
                 <!-- Date and time range -->
                 <div class="form-group">
-                  <label>Pesan Anda</label>
+                  <label>Pesan Anda : <span style="color:#d45252;"><sup>* wajib diisi</sup></span></label>
 
                   <div class="input-group">
                     <div class="input-group-prepend">

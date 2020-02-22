@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Departmen extends Seeder
+class Bidang extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,23 +11,23 @@ class Departmen extends Seeder
      */
     public function run()
     {
-        DB::table('departmens')->insert([
+        DB::table('bidangs')->insert([
 	        'nama'  => 'Umum/Semua'
 		]);
 
-		DB::table('departmens')->insert([
+		DB::table('bidangs')->insert([
 	        'nama'  => 'Divisi Pengkaderan'
 		]);
 
-		DB::table('departmens')->insert([
+		DB::table('bidangs')->insert([
 	        'nama'  => 'Divisi Humas'
 		]);
 
-		DB::table('departmens')->insert([
+		DB::table('bidangs')->insert([
 	        'nama'  => 'Divisi Ilmu Pengetahuan dan Teknologi'
 		]);
 
-		DB::table('departmens')->insert([
+		DB::table('bidangs')->insert([
 	        'nama'  => 'Divisi Kesekretariatan'
 		]);
     }
