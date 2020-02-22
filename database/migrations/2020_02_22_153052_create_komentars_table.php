@@ -24,7 +24,7 @@ class CreateKomentarsTable extends Migration
             $table->text('pesan');
             $table->bigInteger('bidang_id')->unsigned();
             $table->timestamps();
-            $table->foreign('bidang_id')->references('id')->on('departmens');
+            $table->foreign('bidang_id')->references('id')->on('bidangs');
         });
     }
 
