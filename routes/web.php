@@ -38,7 +38,7 @@ Route::prefix('app/admin')->group(function() {
 	Route::get('/komentar/belum-dibaca', 'Komentar@komentar_belumterbaca')->name('belumterbaca');
 	Route::get('komentar/{id}/detail', 'TableApi@detail')->name('table.detail'); //tidak boleh di ubah rutenya
 	Route::delete('komentar/{id}', 'Komentar@delete');
-	Route::post('feedback', 'Komentar@feedback')->name('feedback');
+	Route::put('feedback', 'Komentar@feedback')->name('feedback');
 
 	// MANAGE BIDANG
 	Route::get('manage-bidang', 'Bidang@index')->name('bidang.index');
