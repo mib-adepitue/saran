@@ -33,7 +33,7 @@
 		<div class="jumbotron ">
   <h1 class="display-4">Komentar, Saran, Keluhan!</h1>
   <hr>
-<p>Alamat : jln. perintis kemerdekaan km.7 | Email : mibadepituedp@gmail.com | No. Telp : 082344949505)</p>
+<p>Alamat : BTN Antara Makassar | Email : mibadepituedp@gmail.com | No. Telp : 082344949505</p>
 </div>
 
 	<div class="card card-body">
