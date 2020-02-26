@@ -44,7 +44,9 @@ class Komentar extends Controller
         $data = \App\Komentar::findOrFail($request->id);
 
         if($data->email == '') {
-            
+            $data->admin_verified = 'yes';
+            $data->save();
+            return $arrayName = array('status' => 'success' , 'pesan' => 'Berhasil baca data');
         } else {
             if($data->nama != '') {
                 $nama = $data->nama;
