@@ -18,34 +18,34 @@ Kebutuhan :
 1. Download Aplikasi ini 
 2. Akses foldernya di cmd atau terminal lalu ketikkan (koneksi internet) <blockquote>composer install</blockquote>
 
-6. Setting Env Anda, file .env.example yang ada di dalam folder project Anda, rename file<blockquote> .env.example</blockquote>
+3. Setting Env Anda, file .env.example yang ada di dalam folder project Anda, rename file<blockquote> .env.example</blockquote>
  ubah menjadi <blockquote>.env</blockquote>
 
-7. Jalankan Perintah <blockquote>php artisan key:generate/<blockquote>
+4. Jalankan Perintah <blockquote>php artisan key:generate/<blockquote>
 
-8. Edit env Anda , perhatikan format berikut :<blockquote>
+5. Edit env Anda , perhatikan format berikut :<blockquote>
 	DB_DATABASE=nama_db<br>
 	DB_USERNAME=user_db<br>
 	DB_PASSWORD=password_db
-    <blockquote>
+    </blockquote>
 
-9. Karena aplikasi ini memiliki fitur send email, maka atur di env sebagai berikut :<blockquote>
-	MAIL_DRIVER=smtp
-	MAIL_HOST=smtp.gmail.com
-	MAIL_PORT=465
-	MAIL_USERNAME=gmail_anda
-	MAIL_PASSWORD=password_gmail_anda
+6. Karena aplikasi ini memiliki fitur send email, maka atur di env sebagai berikut :<blockquote>
+	MAIL_DRIVER=smtp<br>
+	MAIL_HOST=smtp.gmail.com<br>
+	MAIL_PORT=465<br>
+	MAIL_USERNAME=gmail_anda<br>
+	MAIL_PASSWORD=password_gmail_anda<br>
 	MAIL_ENCRYPTION=ssl
     </blockquote>
 
-10. Pastikan email Anda tidak verifikasi 2 akun, dan less secure app access nya on.
-11. Ketikkan perintah <blockquote>php artisan migrate:refresh --seed</blockquote> di cmd atau terminal
-12. Ketikkan perintah <blockquote>php artisan serve</blockquote> di cmd atau terminal
-13. Ketik <blockquote>localhost:8000/<blockquote> di browser untuk halaman pelanggan
-14. untuk mengakses halaman admin, ketik <blockquote>localhost:8000/app/admin</blockquote> akan otomatis tersedia akun sebagai berikut
+7. Pastikan email Anda tidak verifikasi 2 akun, dan less secure app access nya on.
+8. Ketikkan perintah <blockquote>php artisan migrate:refresh --seed</blockquote> di cmd atau terminal
+9. Ketikkan perintah <blockquote>php artisan serve</blockquote> di cmd atau terminal
+10. Ketik <blockquote>localhost:8000</blockquote> di browser untuk halaman pelanggan
+11. untuk mengakses halaman admin, ketik <blockquote>localhost:8000/app/admin</blockquote> akan otomatis tersedia akun sebagai berikut
 	login dengan <blockquote>
 	email : angelica@gmail.com<br>
 	password : 12345678
         </blockquote>
-15. Selamat menikmati. 
+12. Selamat menikmati. 
 
